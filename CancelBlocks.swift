@@ -16,7 +16,7 @@ func dispatch_block_t(delay:Double, block:dispatch_block_t?) -> dispatch_cancela
     var cancelableBlock:dispatch_cancelable_block_t? = nil
     var delayBlock:dispatch_cancelable_block_t = {(cancel:Bool) -> Void in
         if ((!cancel) && (originalBlock != nil)) {
-            dispatch_async(dispatch_get_main_queue(), originalBlock)
+            dispatch_async(dispatch_get_main_queue(), originalBlock!)
         }
         cancelableBlock = nil
         originalBlock = nil
